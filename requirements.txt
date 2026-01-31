@@ -6,3 +6,4 @@ psycopg2
 python-dotenv
 dj-database-url
 gunicorn
+django-filter

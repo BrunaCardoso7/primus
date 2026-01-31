@@ -5,3 +5,4 @@ class SugestaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sugestao
         fields = "__all__"
+        exclude = ("user",)
