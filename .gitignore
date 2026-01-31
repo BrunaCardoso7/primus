@@ -1,0 +1,72 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtualenv
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# =========================
+# Django
+# =========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Migrations (opcional — comente se quiser versionar)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# =========================
+# Secrets / Environment
+# =========================
+.env.*
+*.env
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Test / Coverage
+# =========================
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# =========================
+# Build / Packaging
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Celery / Async
+# =========================
+celerybeat-schedule
+celerybeat.pid
