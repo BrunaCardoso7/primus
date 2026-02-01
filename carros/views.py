@@ -11,6 +11,8 @@ class CarroViewSet(ModelViewSet):
     serializer_class = CarroSerializer
     permission_classes = [AllowAny]
     filterset_class = CarroFilter
+    ordering_fields = ['hr_agendamento', 'is_finalizado']
+    ordering = ['hr_agendamento']
     http_method_names = ['get', 'post', 'patch', "delete"]
     def get_permissions(self):
         return [IsAuthenticated()]

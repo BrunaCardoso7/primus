@@ -1,4 +1,6 @@
 import django_filters
+from django.utils import timezone
+from datetime import timedelta
 from .models import Carro
 
 
@@ -17,8 +19,14 @@ class CarroFilter(django_filters.FilterSet):
 
     ie_tipo_lavagem = django_filters.CharFilter()
 
-    data_agendamento = django_filters.TimeFilter(
-        field_name="hr_agendamento"
+    periodo = django_filters.ChoiceFilter(
+        method='filter_periodo',
+        choices=(
+            ('hoje', 'Hoje'),
+            ('semana', 'Esta semana'),
+            ('mensal', 'Este mês'),
+        ),
+        label='Período'
     )
 
     ordering = django_filters.OrderingFilter(
@@ -26,8 +34,12 @@ class CarroFilter(django_filters.FilterSet):
             ('hr_agendamento', 'hr_agendamento'),
             ('is_finalizado', 'is_finalizado'),
         ),
-        field_name='ordenar_por',
-        label='Ordenar por'
+        field_labels={
+            'hr_agendamento': 'Horário Agendamento',
+            'is_finalizado': 'Finalizado'
+        },
+        label='Ordenar por',
+        empty_label=None
     )
 
     class Meta:
@@ -38,3 +50,20 @@ class CarroFilter(django_filters.FilterSet):
             "is_finalizado",
             "ie_tipo_lavagem",
         ]
+
+    def filter_periodo(self, queryset, name, value):
+        hoje = timezone.now().date()
+        if value == 'hoje':
+            return queryset.filter(created_at__date=hoje)
+        elif value == 'semana':
+            inicio_semana = hoje - timedelta(days=hoje.weekday())
+            fim_semana = inicio_semana + timedelta(days=6)
+            return queryset.filter(created_at__date__range=(inicio_semana, fim_semana))
+        elif value == 'mensal':
+            inicio_mes = hoje.replace(day=1)
+            return queryset.filter(created_at__date__gte=inicio_mes)
+        return queryset
+
+    @property
+    def qs(self):
+        return super().qs.order_by('hr_agendamento')
