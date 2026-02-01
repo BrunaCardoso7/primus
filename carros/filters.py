@@ -21,6 +21,15 @@ class CarroFilter(django_filters.FilterSet):
         field_name="hr_agendamento"
     )
 
+    ordering = django_filters.OrderingFilter(
+        fields=(
+            ('hr_agendamento', 'hr_agendamento'),
+            ('is_finalizado', 'is_finalizado'),
+        ),
+        field_name='ordenar_por',
+        label='Ordenar por'
+    )
+
     class Meta:
         model = Carro
         fields = [
