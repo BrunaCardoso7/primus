@@ -90,6 +90,14 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),  # ou 1 dia
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
+    "BLACKLIST_AFTER_ROTATION": False,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
