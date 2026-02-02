@@ -10,6 +10,7 @@ class CarroManager(models.Manager):
     def do_usuario(self, user):
         return self.get_queryset().do_usuario(user)
 
+
 class Carro(BaseModel):
     class TipoLavagemChoice(models.TextChoices):
         simples = "SP", "Simples"
@@ -27,7 +28,10 @@ class Carro(BaseModel):
     nr_telefone_cliente = models.CharField(null=True, blank=True)
     hr_agendamento = models.TimeField(null=True, blank=True)
     ds_observacao = models.CharField(null=True, blank=True)
-    nr_valor = models.CharField(null=True, blank=True)
+    nr_valor = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+    )
     is_finalizado = models.BooleanField(default=False, null=True, blank=True)
     ie_tipo_lavagem = models.CharField(
         max_length=3,
