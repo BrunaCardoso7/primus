@@ -12,7 +12,7 @@ class SugestaoManager(models.Manager):
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
@@ -42,6 +42,12 @@ class Sugestao(BaseModel):
         choices=LikedChoice.choices,
         default=LikedChoice.YES
     )
+
+    class Meta:
+        db_table = "sugestao"
+        verbose_name = "sugestao"
+        verbose_name_plural = "sugestoes"
+        ordering = ["-id"]
 
     objects = SugestaoManager()
     all_objects = models.Manager()

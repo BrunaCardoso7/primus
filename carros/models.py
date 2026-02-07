@@ -39,5 +39,11 @@ class Carro(BaseModel):
         default=TipoLavagemChoice.simples
     )
 
+    class Meta:
+        db_table = "carro"
+        verbose_name = "carro"
+        verbose_name_plural = "carros"
+        ordering = ["-id"]
+
     objects = CarroManager()
     all_objects = models.Manager()

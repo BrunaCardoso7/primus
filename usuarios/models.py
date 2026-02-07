@@ -12,5 +12,12 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
+    class Meta:
+        db_table = "usuario"
+        verbose_name = "usuario"
+        verbose_name_plural = "usuarios"
+        ordering = ["-id"]
+
+
     def __str__(self):
         return self.email
