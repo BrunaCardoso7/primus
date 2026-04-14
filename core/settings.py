@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'sugestoes',
     'usuarios',
     'carros',
-    'produtos'
+    'produtos',
+    'movimentacao'
 ]
 
 MIDDLEWARE = [
@@ -105,8 +106,20 @@ SIMPLE_JWT = {
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+DB_TYPE = os.getenv("DB_TYPE", "").lower()
 
-if DATABASE_URL:
+if DB_TYPE in ("postgres", "postgresql"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("POSTGRES_DB"),
+            "USER": os.getenv("POSTGRES_USER"),
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+            "HOST": os.getenv("DB_HOST", "localhost"),
+            "PORT": os.getenv("DB_PORT", "5432"),
+        }
+    }
+elif DATABASE_URL:
     DATABASES = {
         "default": dj_database_url.config(
             default=DATABASE_URL,

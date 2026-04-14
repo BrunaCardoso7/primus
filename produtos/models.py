@@ -31,13 +31,13 @@ class Produto(BaseModel):
     nr_estoque_minimo = models.IntegerField(blank=True, null=True)
     nr_total_estoque = models.IntegerField(blank=True, null=True)
 
-    nr_custo_unitario = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    nr_valor_total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    nr_valor_desconto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    nr_valor_ajuste = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    nr_valor_imposto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    nr_valor_frete = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    dt_validade = models.DateTimeField(null=True, blank=True)
+    # nr_custo_unitario = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # nr_valor_total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # nr_valor_desconto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # nr_valor_ajuste = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # nr_valor_imposto = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # nr_valor_frete = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    # dt_validade = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         db_table = "produto"
