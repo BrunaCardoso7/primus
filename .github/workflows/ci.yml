@@ -16,19 +16,36 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.12"
 
-      - name: instalando pip-tools
-        run: pip install pip-tools
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pip-tools
+          pip install -r requirements/dev.txt
 
-      - name: Instalando as dependências
-        run: pip install -r requirements/dev.txt
-
-      - name: Rodando checagem de sintaxe
+      - name: Ruff
         run: ruff check .
 
-      - name: Rodando checagem de formatação
+      - name: Black
         run: black --check .
 
-      - name: Rodando testes
+      - name: Tests
         run: pytest
+        env:
+          DJANGO_SETTINGS_MODULE: core.settings
+          PYTHONPATH: .
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image
+        run: docker build -t primus-api .
+
+      - name: Login Docker
+        run: echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
+      - name: Push image
+        run: |
+          docker tag primus-api ${{ secrets.DOCKER_USER }}/primus-api:latest
+          docker push ${{ secrets.DOCKER_USER }}/primus-api:latest

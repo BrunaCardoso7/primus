@@ -1,4 +1,4 @@
-FROM python:3.13
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -6,18 +6,24 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-COPY requirements.txt /app/
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements/base.txt /app/
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements/base.txt
 
 COPY . /app
-
-EXPOSE 8000
-
-RUN chmod +x /app/entrypoint.sh
 
 RUN useradd -m -r appuser && \
     chown -R appuser:appuser /app
 
+RUN chmod +x /app/entrypoint.sh
+
 USER appuser
-CMD ["/app/entrypoint.sh"]
+
+EXPOSE 8000
+
+ENTRYPOINT ["/app/entrypoint.sh"]
