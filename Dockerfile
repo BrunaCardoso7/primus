@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY requirements/base.txt /app/
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements/base.txt
+    pip install --no-cache-dir -r /app/base.txt
 
 COPY . /app
 
