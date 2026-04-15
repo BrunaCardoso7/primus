@@ -10,7 +10,7 @@ from .filters import MovimentacaoFilter
 class MovimentacaoViewSet(ModelViewSet):
     queryset = Movimentacao.objects.all()
     serializer_class = MovimentacaoSerializer
-    http_method_names = ['get', 'post', 'patch', 'delete']
+    http_method_names = ["get", "post", "patch", "delete"]
     filter_backends = [DjangoFilterBackend]
     filterset_class = MovimentacaoFilter
 

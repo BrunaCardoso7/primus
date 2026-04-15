@@ -10,27 +10,62 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('produtos', '0004_remove_produto_cd_barras_remove_produto_estoque_and_more'),
+        ("produtos", "0004_remove_produto_cd_barras_remove_produto_estoque_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Movimentacao',
+            name="Movimentacao",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, null=True)),
-                ('updated_at', models.DateTimeField(blank=True, null=True)),
-                ('deleted_at', models.DateTimeField(blank=True, null=True)),
-                ('ie_tipo_movimentacao', models.CharField(blank=True, choices=[('EN', 'Entrada'), ('SD', 'Saida')], default='EN', max_length=2, null=True)),
-                ('produto', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='produto', to='produtos.produto')),
-                ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_movimentacao', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, null=True)),
+                ("updated_at", models.DateTimeField(blank=True, null=True)),
+                ("deleted_at", models.DateTimeField(blank=True, null=True)),
+                (
+                    "ie_tipo_movimentacao",
+                    models.CharField(
+                        blank=True,
+                        choices=[("EN", "Entrada"), ("SD", "Saida")],
+                        default="EN",
+                        max_length=2,
+                        null=True,
+                    ),
+                ),
+                (
+                    "produto",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="produto",
+                        to="produtos.produto",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="user_movimentacao",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'movimentacao',
-                'verbose_name_plural': 'movimentacaos',
-                'db_table': 'movimentacao',
-                'ordering': ['-id'],
+                "verbose_name": "movimentacao",
+                "verbose_name_plural": "movimentacaos",
+                "db_table": "movimentacao",
+                "ordering": ["-id"],
             },
         ),
     ]

@@ -11,6 +11,7 @@ class ProdutoManager(models.Manager):
     def do_usuario(self, user):
         return self.get_queryset().do_usuario(user)
 
+
 # Create your models here.
 class Produto(BaseModel):
     class IeSituacaoChoice(models.TextChoices):
@@ -21,12 +22,19 @@ class Produto(BaseModel):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="produto",
-        null=True, blank=True
+        null=True,
+        blank=True,
     )
     ds_produto = models.CharField(max_length=255, blank=True, null=True)
     ds_observacao = models.CharField(max_length=255, blank=True, null=True)
     nm_fornecedor = models.CharField(max_length=255, blank=True, null=True)
-    ie_situacao = models.CharField(choices=IeSituacaoChoice.choices, max_length=2, default=IeSituacaoChoice.estocado, blank=True, null=True)
+    ie_situacao = models.CharField(
+        choices=IeSituacaoChoice.choices,
+        max_length=2,
+        default=IeSituacaoChoice.estocado,
+        blank=True,
+        null=True,
+    )
 
     nr_estoque_minimo = models.IntegerField(blank=True, null=True)
     nr_total_estoque = models.IntegerField(blank=True, null=True)

@@ -3,8 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import SugestaoViewSet
 
 router = DefaultRouter()
-router.register(r'sugestoes', SugestaoViewSet, basename='sugestao')
+router.register(r"sugestoes", SugestaoViewSet, basename="sugestao")
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

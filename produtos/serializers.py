@@ -1,25 +1,57 @@
 from rest_framework import serializers
 
 from movimentacao.models import Movimentacao
-from .models import *
+from .models import Produto
 from django.db import transaction
 
 
 class ProdutoSerializer(serializers.ModelSerializer):
     ie_tipo_movimentacao = serializers.CharField(write_only=True)
-    usto_unitario = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                             allow_null=True)
-    nr_valor_total = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                              allow_null=True)
-    nr_valor_desconto = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                                 allow_null=True)
-    nr_valor_ajuste = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                               allow_null=True)
-    nr_valor_imposto = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                                allow_null=True)
-    nr_valor_frete = serializers.DecimalField(max_digits=10, decimal_places=2, write_only=True, required=False,
-                                              allow_null=True)
-    dt_validade = serializers.DateTimeField(write_only=True, required=False, allow_null=True)
+    usto_unitario = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    nr_valor_total = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    nr_valor_desconto = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    nr_valor_ajuste = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    nr_valor_imposto = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    nr_valor_frete = serializers.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        write_only=True,
+        required=False,
+        allow_null=True,
+    )
+    dt_validade = serializers.DateTimeField(
+        write_only=True, required=False, allow_null=True
+    )
 
     @transaction.atomic
     def create(self, validated_data):

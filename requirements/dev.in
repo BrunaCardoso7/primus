@@ -1,0 +1,16 @@
+-r base.in
+
+pytest
+pytest-django
+factory-boy
+coverage
+
+# code quality
+black
+ruff
+isort
+
+# utils dev
+ipython
+django-debug-toolbar
+django-extensions

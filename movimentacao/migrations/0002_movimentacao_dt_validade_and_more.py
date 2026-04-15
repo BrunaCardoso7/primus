@@ -6,43 +6,55 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('movimentacao', '0001_initial'),
+        ("movimentacao", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='movimentacao',
-            name='dt_validade',
+            model_name="movimentacao",
+            name="dt_validade",
             field=models.DateTimeField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_custo_unitario',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_custo_unitario",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_valor_ajuste',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_valor_ajuste",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_valor_desconto',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_valor_desconto",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_valor_frete',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_valor_frete",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_valor_imposto',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_valor_imposto",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='movimentacao',
-            name='nr_valor_total',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="movimentacao",
+            name="nr_valor_total",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
     ]

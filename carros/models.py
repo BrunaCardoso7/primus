@@ -20,7 +20,8 @@ class Carro(BaseModel):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="carros",
-        null=True, blank=True
+        null=True,
+        blank=True,
     )
     nm_carro = models.CharField(null=True, blank=True)
     nr_placa = models.CharField(null=True, blank=True)
@@ -28,15 +29,12 @@ class Carro(BaseModel):
     nr_telefone_cliente = models.CharField(null=True, blank=True)
     hr_agendamento = models.TimeField(null=True, blank=True)
     ds_observacao = models.CharField(null=True, blank=True)
-    nr_valor = models.DecimalField(
-        max_digits=10,
-        decimal_places=2
-    )
+    nr_valor = models.DecimalField(max_digits=10, decimal_places=2)
     is_finalizado = models.BooleanField(default=False, null=True, blank=True)
     ie_tipo_lavagem = models.CharField(
         max_length=3,
         choices=TipoLavagemChoice.choices,
-        default=TipoLavagemChoice.simples
+        default=TipoLavagemChoice.simples,
     )
 
     class Meta:

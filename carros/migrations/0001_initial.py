@@ -7,28 +7,42 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Carro',
+            name="Carro",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, null=True)),
-                ('updated_at', models.DateTimeField(auto_now=True, null=True)),
-                ('deleted_at', models.DateTimeField(blank=True, null=True)),
-                ('nm_carro', models.CharField(blank=True, null=True)),
-                ('nr_placa', models.CharField(blank=True, null=True)),
-                ('nm_cliente', models.CharField(blank=True, null=True)),
-                ('nr_telefone_cliente', models.CharField(blank=True, null=True)),
-                ('hr_agendamento', models.TimeField(blank=True, null=True)),
-                ('ds_observacao', models.CharField(blank=True, null=True)),
-                ('nr_valor', models.CharField(blank=True, null=True)),
-                ('ie_tipo_lavagem', models.CharField(choices=[('SP', 'Simples'), ('CP', 'Completa')], default='SP', max_length=3)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, null=True)),
+                ("updated_at", models.DateTimeField(auto_now=True, null=True)),
+                ("deleted_at", models.DateTimeField(blank=True, null=True)),
+                ("nm_carro", models.CharField(blank=True, null=True)),
+                ("nr_placa", models.CharField(blank=True, null=True)),
+                ("nm_cliente", models.CharField(blank=True, null=True)),
+                ("nr_telefone_cliente", models.CharField(blank=True, null=True)),
+                ("hr_agendamento", models.TimeField(blank=True, null=True)),
+                ("ds_observacao", models.CharField(blank=True, null=True)),
+                ("nr_valor", models.CharField(blank=True, null=True)),
+                (
+                    "ie_tipo_lavagem",
+                    models.CharField(
+                        choices=[("SP", "Simples"), ("CP", "Completa")],
+                        default="SP",
+                        max_length=3,
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

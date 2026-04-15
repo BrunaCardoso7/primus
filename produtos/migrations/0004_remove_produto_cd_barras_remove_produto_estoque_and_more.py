@@ -6,94 +6,112 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('produtos', '0003_rename_nr_venda_produto_vl_venda'),
+        ("produtos", "0003_rename_nr_venda_produto_vl_venda"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='produto',
-            name='cd_barras',
+            model_name="produto",
+            name="cd_barras",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='estoque',
+            model_name="produto",
+            name="estoque",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nm_produto',
+            model_name="produto",
+            name="nm_produto",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='vl_venda',
+            model_name="produto",
+            name="vl_venda",
         ),
         migrations.AddField(
-            model_name='produto',
-            name='ds_observacao',
+            model_name="produto",
+            name="ds_observacao",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='ds_produto',
+            model_name="produto",
+            name="ds_produto",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='dt_validade',
+            model_name="produto",
+            name="dt_validade",
             field=models.DateTimeField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='ie_situacao',
-            field=models.CharField(blank=True, choices=[('ES', 'Estocado'), ('CP', 'Comprar')], default='ES', max_length=2, null=True),
+            model_name="produto",
+            name="ie_situacao",
+            field=models.CharField(
+                blank=True,
+                choices=[("ES", "Estocado"), ("CP", "Comprar")],
+                default="ES",
+                max_length=2,
+                null=True,
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nm_fornecedor',
+            model_name="produto",
+            name="nm_fornecedor",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_custo_unitario',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_custo_unitario",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_estoque_minimo',
+            model_name="produto",
+            name="nr_estoque_minimo",
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_total_estoque',
+            model_name="produto",
+            name="nr_total_estoque",
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_valor_ajuste',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_valor_ajuste",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_valor_desconto',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_valor_desconto",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_valor_frete',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_valor_frete",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_valor_imposto',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_valor_imposto",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AddField(
-            model_name='produto',
-            name='nr_valor_total',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
+            model_name="produto",
+            name="nr_valor_total",
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=10, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='produto',
-            name='updated_at',
+            model_name="produto",
+            name="updated_at",
             field=models.DateTimeField(blank=True, null=True),
         ),
     ]

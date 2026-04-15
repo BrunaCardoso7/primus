@@ -7,27 +7,37 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Produto',
+            name="Produto",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, null=True)),
-                ('updated_at', models.DateTimeField(auto_now=True, null=True)),
-                ('deleted_at', models.DateTimeField(blank=True, null=True)),
-                ('nm_produto', models.CharField(max_length=255)),
-                ('cd_barras', models.CharField(db_index=True, max_length=13, unique=True)),
-                ('nr_venda', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('estoque', models.IntegerField(default=0)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True, null=True)),
+                ("updated_at", models.DateTimeField(auto_now=True, null=True)),
+                ("deleted_at", models.DateTimeField(blank=True, null=True)),
+                ("nm_produto", models.CharField(max_length=255)),
+                (
+                    "cd_barras",
+                    models.CharField(db_index=True, max_length=13, unique=True),
+                ),
+                ("nr_venda", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("estoque", models.IntegerField(default=0)),
             ],
             options={
-                'verbose_name': 'produto',
-                'verbose_name_plural': 'produtos',
-                'db_table': 'produto',
-                'ordering': ['-id'],
+                "verbose_name": "produto",
+                "verbose_name_plural": "produtos",
+                "db_table": "produto",
+                "ordering": ["-id"],
             },
         ),
     ]

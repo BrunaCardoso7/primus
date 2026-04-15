@@ -3,8 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import MovimentacaoViewSet
 
 router = DefaultRouter()
-router.register(r'movimentacoes', MovimentacaoViewSet, basename='movimentacao')
+router.register(r"movimentacoes", MovimentacaoViewSet, basename="movimentacao")
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

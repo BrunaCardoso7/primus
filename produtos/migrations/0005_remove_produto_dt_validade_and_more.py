@@ -6,36 +6,36 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('produtos', '0004_remove_produto_cd_barras_remove_produto_estoque_and_more'),
+        ("produtos", "0004_remove_produto_cd_barras_remove_produto_estoque_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='produto',
-            name='dt_validade',
+            model_name="produto",
+            name="dt_validade",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_custo_unitario',
+            model_name="produto",
+            name="nr_custo_unitario",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_valor_ajuste',
+            model_name="produto",
+            name="nr_valor_ajuste",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_valor_desconto',
+            model_name="produto",
+            name="nr_valor_desconto",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_valor_frete',
+            model_name="produto",
+            name="nr_valor_frete",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_valor_imposto',
+            model_name="produto",
+            name="nr_valor_imposto",
         ),
         migrations.RemoveField(
-            model_name='produto',
-            name='nr_valor_total',
+            model_name="produto",
+            name="nr_valor_total",
         ),
     ]

@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from .models import *
+from .models import User
+
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
+
     exclude = ["password"]
-    extra_kwargs = {
-        "password": {"write_only": True}
-    }
+    extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
         password = validated_data.pop("password")

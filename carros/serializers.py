@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import *
+from .models import Carro
+
 
 class CarroSerializer(serializers.ModelSerializer):
     class Meta:

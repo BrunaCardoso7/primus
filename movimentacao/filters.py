@@ -1,14 +1,9 @@
 import django_filters
-from django.utils import timezone
-from datetime import timedelta
 from .models import Movimentacao
 
 
 class MovimentacaoFilter(django_filters.FilterSet):
-    produto = django_filters.NumberFilter(
-        field_name="produto_id",
-        lookup_expr="exact"
-    )
+    produto = django_filters.NumberFilter(field_name="produto_id", lookup_expr="exact")
 
     # ordering = django_filters.OrderingFilter(
     #     fields=(

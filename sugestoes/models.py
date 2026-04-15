@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 
+
 class SugestaoManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(deleted_at__isnull=True)
@@ -32,15 +33,14 @@ class Sugestao(BaseModel):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="sugestoes",
-        null=True, blank=True
+        null=True,
+        blank=True,
     )
     name = models.CharField(null=True, blank=True)
     phone = models.CharField(null=True, blank=True)
     comment = models.CharField(null=True, blank=True)
     liked = models.CharField(
-        max_length=3,
-        choices=LikedChoice.choices,
-        default=LikedChoice.YES
+        max_length=3, choices=LikedChoice.choices, default=LikedChoice.YES
     )
 
     class Meta:
@@ -51,4 +51,3 @@ class Sugestao(BaseModel):
 
     objects = SugestaoManager()
     all_objects = models.Manager()
-

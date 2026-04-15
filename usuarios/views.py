@@ -9,8 +9,9 @@ class UsuarioViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UsuarioSerializer
     permission_classes = [AllowAny]
-    http_method_names = ['get', 'post', 'patch']
+    http_method_names = ["get", "post", "patch"]
+
     def get_permissions(self):
-        if self.action == 'create':
+        if self.action == "create":
             return [AllowAny()]
         return [IsAuthenticated()]

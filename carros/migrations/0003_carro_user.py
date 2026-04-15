@@ -8,14 +8,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('carros', '0002_carro_is_finalizado'),
+        ("carros", "0002_carro_is_finalizado"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='carro',
-            name='user',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='carros', to=settings.AUTH_USER_MODEL),
+            model_name="carro",
+            name="user",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="carros",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
